@@ -11,3 +11,6 @@ function sub(){
 function multi(){
     return "multi";
 }
+function dev(){
+    return "devision";
+}
