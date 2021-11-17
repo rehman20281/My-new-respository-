@@ -1,6 +1,5 @@
 <?php
 
-
-function sub(){
-    return "subtraction";
-}//end dev1
+function add(){
+    return "add";
+}
