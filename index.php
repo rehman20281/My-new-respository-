@@ -1,6 +1,5 @@
 <?php
 
-
 function add(){
     return "add";
 }
@@ -14,3 +13,6 @@ function multi(){
 function dev(){
     return "devision";
 }
+
+
+function result(){}
