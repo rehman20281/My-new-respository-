@@ -1,5 +1,14 @@
-# My-new-respository-
-My new respository 
+# Simple PHP Program
 
 
-# Welcome in our test repository
+```bash
+php test.php
+```
+
+## Usage
+
+```php
+
+echo "Hello world";
+
+```
