@@ -16,8 +16,12 @@ function dev(){
 
 function result(){}
 
-function setValue1($v){
+function setValue1(){
 }
 
-function setValue2($v){
+function setValue2(){
+}
+
+function getValues(){
+    return "Hello Values";
 }
