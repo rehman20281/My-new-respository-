@@ -8,7 +8,7 @@ php test.php
 ## Usage
 
 ```php
-
-echo "Hello world";
-
+<?php
+echo "<h1>Table</h1>";
+?>
 ```
