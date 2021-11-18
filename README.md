@@ -12,3 +12,9 @@ php test.php
 echo "<h1>Table</h1>";
 ?>
 ```
+# heading 
+## heading 
+### heading 
+#### heading 
+##### heading 
+###### heading 
