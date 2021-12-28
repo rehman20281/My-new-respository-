@@ -113,7 +113,33 @@ I hope you have knowledge about docker and it`s containers and images
 
 First of all you need to build container which are required for your configuration 
 here I am telling you about my own requirement 
-Openresty
+openresty 
+php8.0 
+mongodb 
+mysql 
+redis 
+mailcatcher 
+laravel8
+
+These are container which are configured by our team 
+
+now these containers ready for running 
+
+Step 1
+go to renegade-docker
+``` 
+$ cd projects/renegade-docker
+```
+then 
+run this command
+``` 
+$ docker-compose up --build openresty php8.0 mongodb mysql redis mailcatcher laravel8
+```
+
+` docker-compose up --build `
+this command build all containers if they will not found in our directory it will download from ***Docker hub*** 
+
+
 
 
 
