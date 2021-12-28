@@ -136,15 +136,57 @@ run this command
 $ docker-compose up --build openresty php8.0 mongodb mysql redis mailcatcher laravel8
 ```
 
-` docker-compose up --build `
-this command build all containers if they will not found in our directory it will download from ***Docker hub*** 
+`docker-compose up --build `
+This command build all containers if its image will not found in our directory it will download from ***Docker hub*** 
+
+when you run this command after its running proccess you will see like that  
+***NOTE***: docker can start the process in the container and attach the console to the process’s standard input, standard output 
+``` 
+Successfully built d4c72264f3a5
+Successfully tagged renegade-docker_openresty:latest
+Starting renegade_redis        ... done
+Starting renegade_mailcatcher  ... done
+Starting renegade-docker_app_1 ... done
+Starting renegade_mysql        ... done
+Starting renegade_mongodb      ... done
+Starting renegade_workspace    ... done
+Starting renegade_php8         ... done
+Starting renegade_laravel8     ... done
+Starting renegade_hhvm         ... done
+Recreating renegade_openresty  ... done
+Attaching to renegade_redis, renegade_mailcatcher, renegade_mongodb, renegade_mysql, renegade_php8, renegade_laravel8, renegade_openresty
+```
 
 
 
+if you want to see how many containers are running or proccess mode you will type this command
+
+```
+$ docker ps
+
+CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS         PORTS                                                                                         NAMES
+73a450fdf99e   renegade-docker_openresty     "/usr/local/openrest…"   7 minutes ago   Up 7 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp                      renegade_openresty
+b9eb1ff7b05b   renegade-docker_mongodb       "docker-entrypoint.s…"   6 hours ago     Up 7 minutes   0.0.0.0:27017->27017/tcp, :::27017->27017/tcp                                                 renegade_mongodb
+
+```
 
 
+ps stand for proccess state 
 
+if you want to see how many containers are running and how many are exit you will type this command
 
+```
+$ docker ps -a
 
+ONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS                      PORTS                                                                                         NAMES
+73a450fdf99e   renegade-docker_openresty     "/usr/local/openrest…"   7 minutes ago   Up 7 minutes                0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp                      renegade_openresty
+b0328766b188   renegade-docker_mailcatcher   "mailcatcher -f --ip…"   3 hours ago     Exited (0) 3 hours ago                                                                                                    reverent_rosalind
+8830a58023f4   renegade-docker_mailcatcher   "mailcatcher -f --ip…"   3 hours ago     Created                                                                                                                   vibrant_knuth
+b9eb1ff7b05b   renegade-docker_mongodb       "docker-entrypoint.s…"   6 hours ago     Up 7 minutes                0.0.0.0:27017->27017/tcp, :::27017->27017/tcp                                                 renegade_mongodb
+97d805390232   5b21bb72cfd7                  "/bin/sh -c 'mv /etc…"   7 hours ago     Exited (1) 7 hours ago                                                                                                    exciting_hofstadter
+5d226c217840   5b21bb72cfd7                  "/bin/sh -c 'mv /etc…"   7 hours ago     Exited (1) 7 hours ago           
+```
+
+-a = all
 
 
