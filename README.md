@@ -1,20 +1,24 @@
-# Simple PHP Program
+# RGF-ADMIN Configuration with PHP8.0, laravel8, doctrine/orm:2.10.3  
 
+### ``` About PHP8.0, laravel8, doctrine/orm:2.10.3 ```
 
-```bash
-php test.php
+It contains numerous new features and optimizations including  union types, named arguments, attributes, constructor property promotion, match expression, nullsafe operator, JIT, and improvements in the type system, error handling, and consistency. 
+_https://www.php.net/releases/8.0/en.php_
+
+` composer.json` 
+``` 
+"require": {
+        "php": "^7.4|8.x",
+ }
+
 ```
 
-## Usage
-### test.php
-```php
-<?php
-echo "<h1>Table</h1>";
-?>
+### ``` Doctrine/orm ```
+
+> Latest version of  __doctrine/orm__ was already configured we have just run composer update after this its fetch latest version , so in this configuration we did not work much time.
+
+``` 
+    "laravel-doctrine/orm": "1.7.*",
 ```
-# heading 
-## heading 
-### heading 
-#### heading 
-##### heading 
-###### heading 
+``` composer update ```
+
