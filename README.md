@@ -212,5 +212,8 @@ now go to inside your project
 ``` 
 root@bea7dd095762:/# cd srv/renegade-admin
 root@bea7dd095762:/srv/renegade-admin# php artisan serve
+Starting Laravel development server: http://127.0.0.1:8000
+[Tue Dec 28 16:28:54 2021] PHP 8.0.0 Development Server (http://127.0.0.1:8000) started
+
 ```
 
