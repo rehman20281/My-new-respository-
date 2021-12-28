@@ -186,7 +186,31 @@ b9eb1ff7b05b   renegade-docker_mongodb       "docker-entrypoint.s…"   6 hours 
 97d805390232   5b21bb72cfd7                  "/bin/sh -c 'mv /etc…"   7 hours ago     Exited (1) 7 hours ago                                                                                                    exciting_hofstadter
 5d226c217840   5b21bb72cfd7                  "/bin/sh -c 'mv /etc…"   7 hours ago     Exited (1) 7 hours ago           
 ```
-
 -a = all
 
+#### Step 2 
+you goto inside php8 container 
+
+```
+$ docker-compose exec php8.0 bash 
+```
+it will show you like that
+```
+root@bea7dd095762:/# 
+```
+`Now you are in PHP8.0 container`
+`if you want to test that you are inside or not in container 
+you can run `
+``` 
+root@bea7dd095762:/# php -v
+PHP 8.0.0 (cli) (built: Dec  1 2020 03:14:26) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v4.0.0-dev, Copyright (c) Zend Technologies
+```
+
+now go to inside your project
+``` 
+root@bea7dd095762:/# cd srv/renegade-admin
+root@bea7dd095762:/srv/renegade-admin# php artisan serve
+```
 
