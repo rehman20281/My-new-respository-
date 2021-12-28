@@ -1,4 +1,4 @@
-# RGF-ADMIN Configuration with PHP8.0, laravel8, doctrine/orm:2.10.3  
+# RGF-ADMIN Configuration with Composer, PHP8.0, laravel8, doctrine/orm:2.10.3, Docker   
 ### ``` About Composer ```
 
 ##### Step 1
@@ -105,6 +105,19 @@ _https://www.php.net/releases/8.0/en.php_
     "laravel-doctrine/orm": "1.7.*",
 ```
 ``` composer update ```
+
+
+
+### ``` Docker ``` 
+I hope you have knowledge about docker and it`s containers and images 
+
+First of all you need to build container which are required for your configuration 
+here I am telling you about my own requirement 
+Openresty
+
+
+
+
 
 
 
