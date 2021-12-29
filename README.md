@@ -282,3 +282,9 @@ php artisan serve --port=8090 --host=0.0.0.0
 > Mongodb latest version _`4.4.4-bionic`_ was not working so i have updated this _`FROM mongo:3.6`_
 then it works fine
 
+
+# RFG-UI
+
+> I have updated urls inside `.env`
+REACT_APP_CDN_PATH=http://cp.admin.local/assets/
+REACT_APP_API_BASE_URL=http://cp.admin.local
