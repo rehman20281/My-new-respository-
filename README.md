@@ -237,23 +237,6 @@ Starting Laravel development server: http://127.0.0.1:8000
 [Tue Dec 28 16:28:54 2021] PHP 8.0.0 Development Server (http://127.0.0.1:8000) started
 ```
 
-
-
-# `Renegade-admin`
-> In this we have updated packages which are compatible with php 8 
-and we have also modified .env file 
-
-> .env
- APP_URL=http://cp.admin.local/
- ASSET_URL=http://cp.admin.local/
- HYPERNOVA_ENDPOINT=http://172.17.0.1:3030/batch
-
-> MONGODB_HOST=mongodb
-MONGODB_PORT=27017
-MONGODB_DATABASE=rfglive
-MONGODB_DB=rfglive
-MONGODB_MANAGER=default
-
 # `Openresty`
 > Inside this container we have added 
 cp.admin.local.conf and mailcatcher.rfg.local.conf files inside conf.d directory
@@ -264,6 +247,28 @@ sudo vim /etc/hosts
 127.0.0.1       localhost mysql cp.admin.local
 ```
 Now Restart openresty 
+
+
+# RFG-UI
+
+> I have updated urls inside `.env`
+REACT_APP_CDN_PATH=http://cp.admin.local/assets/
+REACT_APP_API_BASE_URL=http://cp.admin.local
+
+# `Renegade-admin`
+> In this we have updated packages which are compatible with php 8 
+and we have also modified .env file 
+
+> `.env`
+ APP_URL=http://cp.admin.local/
+ ASSET_URL=http://cp.admin.local/
+ HYPERNOVA_ENDPOINT=http://172.17.0.1:3030/batch
+
+> MONGODB_HOST=mongodb
+MONGODB_PORT=27017
+MONGODB_DATABASE=rfglive
+MONGODB_DB=rfglive
+MONGODB_MANAGER=default
 
 We have removed assets directory from renegade-admin/public/ 
 then we create symbolic links using this command
@@ -277,14 +282,7 @@ php artisan serve --port=8090 --host=0.0.0.0
 ```
 
 
-
 # NOTE 
 > Mongodb latest version _`4.4.4-bionic`_ was not working so i have updated this _`FROM mongo:3.6`_
 then it works fine
 
-
-# RFG-UI
-
-> I have updated urls inside `.env`
-REACT_APP_CDN_PATH=http://cp.admin.local/assets/
-REACT_APP_API_BASE_URL=http://cp.admin.local
