@@ -20,12 +20,10 @@ We'll download it, and confirm that it's not debased, and afterward use it to in
 Now, make sure you are in home directory, then retrieve the installer using curl:
 ``` 
 $ cd ~
-
 ```
 then
 ```
 $ curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
-
 ```
 
 Then, we'll check that the downloaded installer matches the SHA-384 hash for the most recent installer found on the Composer ***`Public Keys/Signatures`*** ***https://composer.github.io/pubkeys.html***. To work with the confirmation step, To facilitate the verification step, you can use the following command to programmatically obtain the latest hash from the Composer page and store it in a shell variable:
@@ -87,6 +85,25 @@ When this output will display on the screen it means composer has been installed
 > It contains numerous new features and optimizations including  union types, named arguments, attributes, constructor property promotion, match expression, nullsafe operator, JIT, and improvements in the type system, error handling, and consistency. 
 _https://www.php.net/releases/8.0/en.php_
 
+PHP 8.0 
+> we have create its container in our docker 
+
+Dockerfile
+> FROM laravelsail/php80-composer:latest
+RUN apt-get update
+RUN apt-get install -y git
+RUN set -ex \
+    && pecl update-channels \
+    && pecl install redis-stable \
+    && docker-php-ext-enable redis \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb \
+    && pecl install lzf \
+    && pecl install zip \
+    && docker-php-ext-enable zip lzf
+    RUN docker-php-ext-install pdo pdo_mysql
+
+
 
 
 ` composer.json` 
@@ -94,7 +111,6 @@ _https://www.php.net/releases/8.0/en.php_
 "require": {
         "php": "^7.4|8.x",
  }
-
 ```
 
 ### ``` Doctrine/orm ```
@@ -198,9 +214,14 @@ it will show you like that
 ```
 root@bea7dd095762:/# 
 ```
-`Now you are in PHP8.0 container`
+`Now you are inside PHP8.0 container`
 `if you want to test that you are inside or not in container 
-you can run `
+you can run`
+```
+$ docker-compose exec [container-name] bash
+this command use to execute your container , means when you will use this command you will be inside container then you can run your commands inside container 
+```
+
 ``` 
 root@bea7dd095762:/# php -v
 PHP 8.0.0 (cli) (built: Dec  1 2020 03:14:26) ( NTS )
@@ -208,12 +229,38 @@ Copyright (c) The PHP Group
 Zend Engine v4.0.0-dev, Copyright (c) Zend Technologies
 ```
 
-now go to inside your project
+#### Now go to inside your project
 ``` 
 root@bea7dd095762:/# cd srv/renegade-admin
 root@bea7dd095762:/srv/renegade-admin# php artisan serve
 Starting Laravel development server: http://127.0.0.1:8000
 [Tue Dec 28 16:28:54 2021] PHP 8.0.0 Development Server (http://127.0.0.1:8000) started
-
 ```
 
+
+
+# `Renegade-admin`
+> In this we have updated packages which are compatible with php 8 
+and we have also modified .env file 
+
+> .env
+ APP_URL=http://cp.admin.local/
+ ASSET_URL=http://cp.admin.local/
+ HYPERNOVA_ENDPOINT=http://172.17.0.1:3030/batch
+
+> MONGODB_HOST=mongodb
+MONGODB_PORT=27017
+MONGODB_DATABASE=rfglive
+MONGODB_DB=rfglive
+MONGODB_MANAGER=default
+
+# `Openresty`
+> Inside this container we have added 
+cp.admin.local.conf and mailcatcher.rfg.local.conf files inside conf.d directory
+
+Now add this server inside your system hosts
+``` 
+sudo vim /etc/hosts 
+127.0.0.1       localhost mysql cp.admin.local
+```
+Now Restart openresty 
