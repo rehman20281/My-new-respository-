@@ -264,3 +264,21 @@ sudo vim /etc/hosts
 127.0.0.1       localhost mysql cp.admin.local
 ```
 Now Restart openresty 
+
+We have removed assets directory from renegade-admin/public/ 
+then we create symbolic links using this command
+
+```
+ln -s ../../rfg-ui/client-build assets 
+```
+then
+```
+php artisan serve --port=8090 --host=0.0.0.0
+```
+
+
+
+# NOTE 
+> Mongodb latest version _`4.4.4-bionic`_ was not working so i have updated this _`FROM mongo:3.6`_
+then it works fine
+
